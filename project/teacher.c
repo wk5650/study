@@ -396,27 +396,28 @@ void bye(int a)
 	char ch='\0';
 	char ch1='\0';
 	teacher_link_t *head=readfile();
+	teacher_link_t *temp=head;
 	printf("确定辞职？(y/n)");
 	scanf("%c",&ch);
 	while(getchar()!='\n');
 	if(ch=='y')
 	{
-		while(head->next!=NULL)
+		while(temp->next!=NULL)
 		{
-			if(a==head->next->data.id)
+			if(a==temp->next->data.id)
 			{
 				printf("真的确定？(y/n)");
 				scanf("%c",&ch1);
 				while(getchar()!='\n');
 				if(ch=='y')
 				{
-					head->next->data.flag=1;
+					temp->next->data.flag=1;
 					writefile(head);
 					printf("辞职申请成功\n");
 					return;
 				}
 			}
-			head=head->next;
+			temp=temp->next;
 		}
 	}else
 	{
