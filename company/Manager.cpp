@@ -70,6 +70,7 @@ void Manager::updateTec(int id)
 		cout << "\t\t1.修改技术员工作时间  \n";
 		cout << "\t\t2.修改技术员工作时薪  \n";
 		cout << "\t\t3.修改技术员的上级    \n";
+		cout << "\t\t4.修改技术员的备注    \n";
 		cout << "\t\t0.退出                \n";
 		cout << "\t\t**********************\n";
 		cout << "请选择:\n";
@@ -95,6 +96,15 @@ void Manager::updateTec(int id)
 				cout << "输入技术员的上级编号:\n";
 				cin >> uid;
 				findTec(id)->setLeader(uid);
+				break;
+			}
+			case 4:
+			{
+				string note;
+				cout << "请输入该技术员的备注:\n";
+				cin >> note;
+				findTec(id)->setNote(note);
+				cout << "备注修改成功\n";
 				break;
 			}
 			case 0:
@@ -139,6 +149,7 @@ void Manager::work()
 	{
 		system("clear");
 		int ch;
+		cout << "\t\t欢迎 " << getName() << " 进入!\n";
 		cout << "\t\t**************\n";
 		cout << "\t\t1.查看信息    \n";
 		cout << "\t\t2.修改密码    \n";

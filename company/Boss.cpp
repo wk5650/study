@@ -239,13 +239,45 @@ void Boss::updataManager(int id)
 		cout << "请输入你要修改的技术经理的编号:\n";
 		cin >> id;
 	}
-	findManager(id)->info();
-	cout << "请输入技术经理的工资:";
-	cin >> num;
-	findManager(id)->setSalary(num);
-	DataSet::getInstance().getManagerMap().insert(PAIR_MANAGER(id,findManager(id)));
-	findManager(id)->info();
-	cout << "修改成功" << endl;
+	while(1)
+	{
+		int ch=-1;
+		cout << "\t\t*********************\n";
+		cout << "\t\t1.修改技术经理的工资 \n";
+		cout << "\t\t2.修改技术经理的备注 \n";
+		cout << "\t\t0.退出 \n";
+		cout << "\t\t*********************\n";
+		cout << "请选择:\n";
+		cin >> ch;
+		switch(ch)
+		{
+			case 1:
+				{
+					findManager(id)->info();
+					cout << "请输入技术经理的工资:";
+					cin >> num;
+					findManager(id)->setSalary(num);
+					DataSet::getInstance().getManagerMap().insert(PAIR_MANAGER(id,findManager(id)));
+					findManager(id)->info();
+					cout << "修改成功" << endl;
+					break;
+				}
+			case 2:
+				{
+					string note;
+					cout << "请输入该技术经理的备注:\n";
+					cin >> note;
+					findManager(id)->setNote(note);
+					DataSet::getInstance().getManagerMap().insert(PAIR_MANAGER(id,findManager(id)));
+					cout << "修改备注成功\n";
+					break;
+				}
+			case 0:
+				return;
+			default :
+				cout << "输入错误\n";
+		}
+	}
 }
 Manager* Boss::findManager(int id)
 {
@@ -312,14 +344,46 @@ void Boss::updateSaleManager(int id)
 		cout << "请输入要修改的销售经理的编号:\n";
 		cin >> id;
 	}
-	findSaleManager(id)->info();
-	float money;
-	cout << "请输入该销售经理的工资:\n";
-	cin >> money;
-	findSaleManager(id)->setsalary(money);
-	DataSet::getInstance().getSaleManagerMap().insert(PAIR_SALEMANAGER(id,findSaleManager(id)));
-	findSaleManager(id)->info();
-	cout << "修改成功" << endl;
+	while(1)
+	{
+		int ch=-1;
+		cout << "\t\t*********************\n";
+		cout << "\t\t1.修改销售经理的工资 \n";
+		cout << "\t\t2.修改销售经理的备注 \n";
+		cout << "\t\t0.退出 \n";
+		cout << "\t\t*********************\n";
+		cout << "请选择:\n";
+		cin >> ch;
+		switch(ch)
+		{
+			case 1:
+				{
+					findSaleManager(id)->info();
+					float money;
+					cout << "请输入该销售经理的工资:\n";
+					cin >> money;
+					findSaleManager(id)->setsalary(money);
+					DataSet::getInstance().getSaleManagerMap().insert(PAIR_SALEMANAGER(id,findSaleManager(id)));
+					findSaleManager(id)->info();
+					cout << "修改成功" << endl;
+					break;
+				}
+			case 2:
+				{
+					string note;
+					cout << "请输入该技术经理的备注:\n";
+					cin >> note;
+					findSaleManager(id)->setNote(note);
+					DataSet::getInstance().getSaleManagerMap().insert(PAIR_SALEMANAGER(id,findSaleManager(id)));
+					cout << "修改备注成功\n";
+					break;
+				}
+			case 0:
+				return;
+			default :
+				cout << "输入错误\n";
+		}
+	}
 }
 SaleManager* Boss::findSaleManager(int id)
 {
@@ -360,7 +424,7 @@ void Boss::work()
 	{
 		system("clear");
 		int ch=-1;
-		cout << "\t\t欢迎你，老板!\n";
+		cout << "\t\t欢迎 " << getName() << " 进入!\n";
 		cout << "\t\t*********************\n";
 		cout << "\t\t1.查看信息           \n";
 		cout << "\t\t2.对技术员进行操作   \n";

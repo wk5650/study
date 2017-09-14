@@ -39,11 +39,10 @@ class Base
 		//显示信息
 		void info();
 
-//		void setId();
 		//修改密码
 		void setPwd();
 		//设置备注信息
-		void setNote();
+		void setNote(string note);
 	public:
 		static int m_iBase;
 	private:

@@ -12,59 +12,6 @@ Base::Base(string name,string level)
 Base::~Base()
 {}
 
-#if 0
-void Base::setId()
-{
-	MAP_TEC &refMap1=DataSet::getInstance().getTecMap();
-	MAP_TEC::iterator iter1=refMap1.begin();
-	for(;iter1!=refMap1.end();iter1++)
-	{
-		if(iter1->first>=m_iBase)
-		{
-			m_iBase=iter1->first;
-		}
-	}
-
-	MAP_SALE &refMap2=DataSet::getInstance().getSaleMap();
-	MAP_SALE::iterator iter2=refMap.begin();
-	for(;iter2!=refMap2.end();iter2++)
-	{
-		if(iter2->first>=m_iBase)
-		{
-			m_iBase=iter2->first;
-		}
-	}
-	MAP_MANAGER &refMap3=DataSet::getInstance().getManagerMap();
-	MAP_MANAGER::iterator iter3=refMap3.begin();
-	for(;iter3!=refMap3.end();iter3++)
-	{
-		if(iter3->first>=m_iBase)
-		{
-			m_iBase=iter3->first;
-		}
-	}
-	MAP_SALEMANAGER &refMap4=DataSet::getInstance().getSaleManagerMap();
-	MAP_SALEMANAGER::iterator iter4=refMap4.begin();
-	for(;iter4!=refMap4.end();iter4++)
-	{
-		if(iter4->first>=m_iBase)
-		{
-			m_iBase=iter4->first;
-		}
-	}
-	MAP_BOSS &refMap5=DataSet::getInstance().getBossMap();
-	MAP_BOSS::iterator iter5=refMap5.begin();
-	for(;iter5!=refMap5.end();iter5++)
-	{
-		if(iter5->first>=m_iBase)
-		{
-			m_iBase=iter5->first;
-		}
-	}
-	m_iBase++;
-}
-#endif
-
 int Base::getId() const
 {
 	return m_iId;
@@ -146,6 +93,7 @@ void Base::setPwd()
 		cout << "密码错误\n";
 	}
 }
-void setNote()
+void Base::setNote(string note)
 {
+	m_strNote=note;
 }

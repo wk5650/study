@@ -45,6 +45,7 @@ void Sale::work()
 	{
 		system("clear");
 		int ch;
+		cout << "\t\t欢迎 " << getName() << " 进入!\n";
 		cout << "\t\t***************\n";
 		cout << "\t\t*1.查看信息   *\n";
 		cout << "\t\t*2.修改密码   *\n";

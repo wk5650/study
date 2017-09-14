@@ -63,7 +63,6 @@ void Company::setId()
 //增加老板
 void Company::init()
 {
-//	cout << DataSet::getInstance().getBossMap().size() << endl;
 	if(DataSet::getInstance().getBossMap().empty())
 	{
 		Boss *pboss=new Boss;
@@ -74,6 +73,7 @@ void Company::init()
 char Company::menu()
 {
 	char ch='\0';
+	cout << "\t\t欢迎使用公司管理系统\n";
 	cout << "\t\t********************\n";
 	cout << "\t\t*1.技术员登录      *\n";
 	cout << "\t\t*2.技术经理登录    *\n";
@@ -89,6 +89,7 @@ char Company::menu()
 }
 void Company::work()
 {
+	int flag=0;
 	int id=0;
 	char num=-1;
 	string strPwd="";
@@ -104,7 +105,9 @@ void Company::work()
 		cin >> id;
 		getchar();
 		cout << "请输入密码:\n";
+		cout << "\033[8m";
 		cin >> strPwd;
+		cout << "\033[0m";
 		switch(num)
 		{
 			case '1':
@@ -117,6 +120,14 @@ void Company::work()
 				else
 				{
 					cout << "登入失败\n";
+					flag++;
+					int num=3-flag;
+					cout << "你还有" << num << "次机会\n";
+				}
+				if(flag==3)
+				{
+					cout << "机会已用完\n";
+					exit(1);
 				}
 				break;
 			}
@@ -130,6 +141,14 @@ void Company::work()
 				else
 				{
 					cout << "登入失败\n";
+					flag++;
+					int num=3-flag;
+					cout << "你还有" << num << "次机会\n";
+				}
+				if(flag==3)
+				{
+					cout << "机会已用完\n";
+					exit(1);
 				}
 				break;
 			}
@@ -143,6 +162,14 @@ void Company::work()
 				else
 				{
 					cout << "登入失败\n";
+					flag++;
+					int num=3-flag;
+					cout << "你还有" << num << "次机会\n";
+				}
+				if(flag==3)
+				{
+					cout << "机会已用完\n";
+					exit(1);
 				}
 				break;
 			}
@@ -156,6 +183,14 @@ void Company::work()
 				else
 				{
 					cout << "登入失败\n";
+					flag++;
+					int num=3-flag;
+					cout << "你还有" << num << "次机会\n";
+				}
+				if(flag==3)
+				{
+					cout << "机会已用完\n";
+					exit(1);
 				}
 				break;
 			}
@@ -169,6 +204,14 @@ void Company::work()
 				else
 				{
 					cout << "登入失败\n";
+					flag++;
+					int num=3-flag;
+					cout << "还有" << num << "次机会\n";
+				}
+				if(flag==3)
+				{
+					cout << "机会已用完\n";
+					exit(1);
 				}
 				break;
 			}

@@ -25,6 +25,7 @@ void SaleManager::work()
 	{
 		system("clear");
 		int ch=-1;
+		cout << "\t\t欢迎 " << getName() << " 进入!\n";
 		cout << "\t\t**************\n";
 		cout << "\t\t1.查看信息    \n";
 		cout << "\t\t2.修改密码    \n";
@@ -124,6 +125,7 @@ void SaleManager::updateSale(int id)
 		cout << "\t\t*************************\n";
 		cout << "\t\t1.修改该销售员的月销售额:\n";
 		cout << "\t\t2.修改该销售员的上级     \n";
+		cout << "\t\t3.修改该销售员的备注     \n";
 		cout << "\t\t0.退出                   \n";
 		cout << "\t\t*************************\n";
 		cout << "\t\t请选择:\n";
@@ -144,6 +146,15 @@ void SaleManager::updateSale(int id)
 				cin >> uid;
 				findSale(id)->setLeader(uid);
 				cout << "修改成功\n";
+				break;
+			}
+			case 3:
+			{
+				string note;
+				cout << "请输入该销售员的备注:\n";
+				cin >> note;
+				findSale(id)->setNote(note);
+				cout << "修改备注成功\n";
 				break;
 			}
 			case 0:
